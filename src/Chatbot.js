@@ -112,27 +112,37 @@ const Chatbot = ({ username, onLogout }) => {
       ))}
       {loading && <div className="message chatbot"><em>Loading</em></div>}
       <div ref={messagesEndRef} />
-      <form onSubmit={handleMessageSubmit} className="chatbot-form">
-        <select name="mode" className="chatbot-select" value={selectedMode} onChange={handleModeChange} disabled={disableSend}>
-          <option value="Therapist">Therapist</option>
-          <option value="Buddhist Monk">Buddhist Monk</option>
-          <option value="Marcus Aurelius">Marcus Aurelius</option>
-          <option value="Mark Manson">Mark Manson</option>
-        </select>
-        <input
-          type="text"
-          name="message"
-          placeholder="Type your message..."
-          className="chatbot-input"
-          autoComplete="off"
-          disabled={disableSend} // Disable input when send button is disabled
-          ref={messageInputRef} // Reference to the input element
-        />
-        <button type="submit" className="chatbot-button" disabled={disableSend}>Send</button>
-      </form>
+  <form onSubmit={handleMessageSubmit} className="chatbot-form">
+  <div className="input-container">
+    <input
+      type="text"
+      name="message"
+      placeholder="Type your message..."
+      className="chatbot-input"
+      autoComplete="off"
+      disabled={disableSend}
+      ref={messageInputRef}
+    />
+    <button type="submit" className="chatbot-button" disabled={disableSend}>
+      Send
+    </button>
+  </div>
+  <select
+    name="mode"
+    className="chatbot-select"
+    value={selectedMode}
+    onChange={handleModeChange}
+    disabled={disableSend}
+  >
+    <option value="Therapist">Therapist</option>
+    <option value="Buddhist Monk">Buddhist Monk</option>
+    <option value="Marcus Aurelius">Marcus Aurelius</option>
+    <option value="Mark Manson">Mark Manson</option>
+  </select>
+</form>
       <div className="logout-and-clear-chat-buttons">
       <button onClick={onLogout} className="logout-button">Logout</button> {/* Button to log out */}
-      <button onClick={handleClearChatHistory} className="clear-chat-button">Clear Chat History</button> {/* Button to clear chat history */}
+      <button onClick={handleClearChatHistory} className="clear-chat-button">Clear History</button> {/* Button to clear chat history */}
       </div>
     </div>
   );

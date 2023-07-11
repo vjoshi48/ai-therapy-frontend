@@ -29,12 +29,12 @@
 .message.user {
   align-self: flex-end;
   text-align: right;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .message.chatbot {
   align-self: flex-start;
-  font-size: 30px;
+  font-size: 20px;
   white-space: pre-line;
   background-color: #007aff; /* iOS blue color */
   color: #ffffff; /* White text color */
@@ -42,13 +42,22 @@
 
 .chatbot-form {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  flex: 1;
+  flex-direction: column; /* Change the direction to column */
+  align-items: space-between; /* Align items to the start */
   margin-top: 16px;
+}
+
+.input-container {
+  flex: 1;
+  display: flex;
+  align-items: right; /* Align items to the bottom */
+  margin-bottom: 8px; /* Add some spacing below the input container */
 }
 
 .chatbot-input {
   flex: 1;
+  align-items: column;
   padding: 20px;
   font-family: Arial, sans-serif;
   font-size: 20px;
@@ -73,15 +82,16 @@
 
 .logout-and-clear-chat-buttons {
   display: flex;
-  justify-content: space-around;
+  flex: 1;
+  font-size: 20px;
+  justify-content: column;
   align-items: center;
   margin-top: 16px;
 }
 
 .logout-button {
   flex: 1;
-  align-self: center;
-  margin-left: 8px;
+  align-self: left;
   padding: 20px;
   background-color: #ffffff;
   color: #000000;
@@ -111,15 +121,20 @@
 }
 
 .chatbot-select {
-  flex: 0;
-  margin-right: 8px;
+  flex: 1;
   padding: 20px;
+  margin-left: 8px;
+  margin-right: 8px;
+  align-self: center;
   font-family: Arial, sans-serif;
   font-size: 20px;
   border: 5px solid #000000;
   border-radius: 10px;
-  box-sizing: border-box; 
+  margin-top: 8px;
+  width: 100%; /* Set the width to 100% */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
 }
+
 
 .app-container {
   display: flex;
