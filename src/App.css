@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.register-button {
+  flex: 0;
+  align-self: center;
+  margin-top: 8px;
+  padding: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  border: 5px solid #000000;
+  border-radius: 10px;
+}

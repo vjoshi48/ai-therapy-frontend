@@ -1,19 +1,58 @@
 import React, { useState } from 'react';
 import './LoginPage.css';
+import RegisterPage from './RegisterPage';
 
 const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [showRegisterPage, setShowRegisterPage] = useState(false);
 
   const handleUsernameChange = (event) => {
     setUsername(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (username.trim() !== '') {
-      onLogin(username);
+    if (username.trim() !== '' && password.trim() !== '') {
+      try {
+        const response = await fetch('https://aitherapy-demo-flask-f965355381de.herokuapp.com/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password }),
+        });
+        const { username: responseUsername, password: responsePassword } = await response.json();
+        if (responseUsername === 'incorrect') {
+          setErrorMessage('Username not found');
+        } else if (responsePassword === 'incorrect') {
+          setErrorMessage('Incorrect password');
+        } else {
+          onLogin(responseUsername);
+        }
+      } catch (error) {
+        console.error('Error occurred during login:', error);
+        setErrorMessage('An error occurred during login');
+      }
     }
   };
+
+  const handleShowRegisterPage = () => {
+    setShowRegisterPage(true);
+  };
+
+  const handleBackToLogin = () => {
+    setShowRegisterPage(false);
+  };
+
+  if (showRegisterPage) {
+    return <RegisterPage onRegister={handleShowRegisterPage} onBackToLogin={handleBackToLogin} />;
+  }
 
   return (
     <div className="login-container">
@@ -27,8 +66,22 @@ const LoginPage = ({ onLogin }) => {
           onChange={handleUsernameChange}
           className="login-input"
         />
-        <button type="submit" className="login-button">Login</button>
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+          value={password}
+          onChange={handlePasswordChange}
+          className="login-input"
+        />
+        <button type="submit" className="login-button">
+          Login
+        </button>
       </form>
+      {errorMessage && <p className="login-error">{errorMessage}</p>}
+      <button className="register-button" onClick={handleShowRegisterPage}>
+        Register
+      </button>
     </div>
   );
 };

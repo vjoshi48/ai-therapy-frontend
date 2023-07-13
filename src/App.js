@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import Chatbot from './Chatbot';
 import LoginPage from './LoginPage';
-import './Chatbot.css';
+import RegisterPage from './RegisterPage';
+import './App.css';
 
 const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
+  const [registerPageVisible, setRegisterPageVisible] = useState(false);
 
   const handleLogin = (username) => {
     setLoggedIn(true);
@@ -17,6 +19,14 @@ const App = () => {
     setUsername('');
   };
 
+  const handleRegister = () => {
+    setRegisterPageVisible(true);
+  };
+
+  const handleBackToLogin = () => {
+    setRegisterPageVisible(false);
+  };
+
   return (
     <div className="app-container">
       {loggedIn ? (
@@ -25,7 +35,13 @@ const App = () => {
           <Chatbot username={username} onLogout={handleLogout} />
         </>
       ) : (
-        <LoginPage onLogin={handleLogin} />
+        <>
+          <h1 className="app-heading">Welcome</h1>
+          <LoginPage onLogin={handleLogin} />
+          {registerPageVisible && (
+            <RegisterPage onRegister={handleRegister} onBackToLogin={handleBackToLogin} />
+          )}
+        </>
       )}
     </div>
   );
