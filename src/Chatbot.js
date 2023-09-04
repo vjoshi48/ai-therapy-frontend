@@ -145,7 +145,7 @@ const Chatbot = ({ username, onLogout }) => {
       <button onClick={handleClearChatHistory} className="clear-chat-button">Clear History</button> {/* Button to clear chat history */}
       </div>
     </div>
-  );
+  ); 
 };
 
 export default Chatbot;
