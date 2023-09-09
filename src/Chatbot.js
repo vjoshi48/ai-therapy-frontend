@@ -138,7 +138,7 @@ const Chatbot = ({ username, onLogout }) => {
     <option value="Buddhist Monk">Buddhist Monk</option>
     <option value="Marcus Aurelius">Marcus Aurelius</option>
     <option value="Mark Manson">Mark Manson</option>
-    <option value="selfcare">Self-care Bot</option>
+    <option value="selfcare">Self Care Bot</option>
   </select>
 </form>
       <div className="logout-and-clear-chat-buttons">
