@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Chatbot.css';
 
-const Chatbot = ({ username, onLogout }) => {
+const Chatbot = ({ username, onLogout, onNavigateToIntakeForm }) => {
   const [messages, setMessages] = useState({});
   const [selectedMode, setSelectedMode] = useState('Therapist');
   const [loading, setLoading] = useState(false);
@@ -18,8 +18,11 @@ const Chatbot = ({ username, onLogout }) => {
       messageInputRef.current.focus();
     }, 100);
   };
-  
 
+  const handleRetakeIntakeForm = () => {
+    // Call the callback function to navigate to the IntakeForm component
+    onNavigateToIntakeForm();
+  };
   const handleSendMessage = (message, mode) => {
     const newMessage = { content: message, sender: 'user' };
     setMessages((prevMessages) => ({
@@ -30,7 +33,7 @@ const Chatbot = ({ username, onLogout }) => {
     setLoading(true);
     setDisableSend(true);
 
-    fetch('https://aitherapy-demo-flask-f965355381de.herokuapp.com/test', {
+    fetch('http://127.0.0.1:5000/test', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -60,7 +63,7 @@ const Chatbot = ({ username, onLogout }) => {
   };
 
   const handleClearChatHistory = () => {
-    fetch('https://aitherapy-demo-flask-f965355381de.herokuapp.com/deleteChatHistory', {
+    fetch('http://127.0.0.1:5000/deleteChatHistory', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -105,6 +108,9 @@ const Chatbot = ({ username, onLogout }) => {
 
   return (
     <div className="chatbot-messages">
+      <button onClick={handleRetakeIntakeForm} className="retake-intake-button">
+        Retake Intake Form
+      </button>
       {(messages[selectedMode] || []).map((message, index) => (
         <div key={index} className={message.sender === 'user' ? 'message user' : 'message chatbot'}>
           <strong>{message.sender === 'user' ? 'User:' : selectedMode + ':'}</strong> {message.content}

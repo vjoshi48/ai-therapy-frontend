@@ -1,4 +1,4 @@
-.register-button {
+.register-questions-button {
     flex: 0;
     align-self: center;
     margin-top: 8px;
@@ -12,7 +12,7 @@
     border-radius: 10px;
   }
   
-  .register-heading {
+  .register-questions-heading {
     text-align: center;
     background-color: #FFFFFF;
     max-width: 80vw;
@@ -20,14 +20,14 @@
     border-radius: 30px;
     border: 5px solid #000000;
   }
-
-  .question-text {
+  
+  .question-label {
     text-align: center;
     max-width: 80vw;
     padding: 10px;
   }
   
-  .register-input {
+  .register-question-input {
     flex: 1;
     margin-bottom: 20px;
     padding: 20px;
@@ -38,14 +38,14 @@
     word-wrap: break-word;
   }
   
-  .register-form {
+  .register-questions-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 16px;
   }
   
-  .register-container {
+  .register-questions-container {
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -60,12 +60,3 @@
     animation: backgroundAnimation 10s infinite linear;
   }
   
-  .register-link {
-    text-align: center;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    margin-top: 16px;
-    cursor: pointer;
-    color: #000000;
-  }
-
