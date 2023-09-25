@@ -33,7 +33,7 @@ const Chatbot = ({ username, onLogout, onNavigateToIntakeForm }) => {
     setLoading(true);
     setDisableSend(true);
 
-    fetch('http://127.0.0.1:5000/test', {
+    fetch('https://aitherapy-demo-flask-f965355381de.herokuapp.com/test', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ const Chatbot = ({ username, onLogout, onNavigateToIntakeForm }) => {
   };
 
   const handleClearChatHistory = () => {
-    fetch('http://127.0.0.1:5000/deleteChatHistory', {
+    fetch('https://aitherapy-demo-flask-f965355381de.herokuapp.com/deleteChatHistory', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

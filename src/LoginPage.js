@@ -20,7 +20,7 @@ const LoginPage = ({ onLogin }) => {
     event.preventDefault();
     if (username.trim() !== '' && password.trim() !== '') {
       try {
-        const response = await fetch('http://127.0.0.1:5000/login', {
+        const response = await fetch('https://aitherapy-demo-flask-f965355381de.herokuapp.com/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
