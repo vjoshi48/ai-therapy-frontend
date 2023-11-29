@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ai-therapy-frontend/static/css/main.bc59aea5.css",
-    "main.js": "/ai-therapy-frontend/static/js/main.d7955fdf.js",
+    "main.js": "/ai-therapy-frontend/static/js/main.0997c35a.js",
     "static/js/787.1b56e80f.chunk.js": "/ai-therapy-frontend/static/js/787.1b56e80f.chunk.js",
     "index.html": "/ai-therapy-frontend/index.html",
     "main.bc59aea5.css.map": "/ai-therapy-frontend/static/css/main.bc59aea5.css.map",
-    "main.d7955fdf.js.map": "/ai-therapy-frontend/static/js/main.d7955fdf.js.map",
+    "main.0997c35a.js.map": "/ai-therapy-frontend/static/js/main.0997c35a.js.map",
     "787.1b56e80f.chunk.js.map": "/ai-therapy-frontend/static/js/787.1b56e80f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bc59aea5.css",
-    "static/js/main.d7955fdf.js"
+    "static/js/main.0997c35a.js"
   ]
 }
